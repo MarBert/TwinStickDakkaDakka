@@ -502,7 +502,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &2892322350917019562
 MonoBehaviour:
@@ -519,9 +519,11 @@ MonoBehaviour:
   tankBody: {fileID: 5761458534474255416}
   tankTop: {fileID: 5761458533179764413}
   projectileSpawn: {fileID: 3760900743861292025}
-  projectile: {fileID: 0}
+  projectile: {fileID: 5476223282690671279, guid: abe7ebfecaa416b468912342bb324022,
+    type: 3}
   movementSpeed: 5
-  rotationSpeed: 80
+  bodyRotationSpeed: 100
+  topRotationSpeed: 60
 --- !u!1 &5761458533947260874
 GameObject:
   m_ObjectHideFlags: 0
