@@ -1,18 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform tankBody;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private Transform tankTop;
+
+    [SerializeField] private Transform projectileSpawn;
+
+    [SerializeField] private GameObject projectile;
+    
+    public float movementSpeed;
+
+    public float rotationSpeed;
+
+    private void Update()
     {
+        var verticalInput = Input.GetAxis("Vertical");
+        var horizontalInput = Input.GetAxis("Horizontal");
         
+        tankBody.Rotate(Time.deltaTime*horizontalInput*rotationSpeed*tankBody.up);
+        transform.position += verticalInput * movementSpeed * Time.deltaTime * tankBody.forward;
     }
 }
