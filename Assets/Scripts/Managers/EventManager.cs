@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Managers
 {
-    public class OnTargetHitEvent : UnityEvent<int,int>
+    public class OnTargetHitEvent : UnityEvent<int,GameObject>
     {
     }
 

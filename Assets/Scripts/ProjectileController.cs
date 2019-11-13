@@ -35,8 +35,9 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("HO COLPITO "+other.name);
         if(!other.CompareTag(tagToHit)) return;
-        EventManager.Instance.onTargetHit.Invoke(damage,other.GetInstanceID());
+        EventManager.Instance.onTargetHit.Invoke(damage,other.gameObject);
         Destroy(gameObject);
     }
 }

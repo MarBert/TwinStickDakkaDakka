@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // ReSharper disable PossibleLossOfFraction
 
@@ -48,13 +49,19 @@ public class PlayerController : MonoBehaviour
         //Sparo
         if (fireInput)
             Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(sceneBuildIndex: 0);
+        
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     private void FixedUpdate()
     {
         var playerPlane = new Plane(Vector3.up, tankTop.position);
 
-        if (_camera == null) return;
+        if (_camera.Equals(null)) return;
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (!playerPlane.Raycast(ray, out var hitDistance)) return;
